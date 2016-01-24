@@ -1,23 +1,38 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 header {
 	text-align: center;
+	font-family: Impact, Charcoal, sans-serif;
 	font-size: 1.928em;
-	color: red;
+	color: #9882A5;
 }
 
 body {
-	background-color: #E1E9F4;
+	background-color: #EDEFF9;
+}
+
+section {
+	margin: 15px;
 }
 .header-beg {
+	font-family: Impact, Charcoal, sans-serif;
 	font-size: 2.571em;
 }
 
 div.blog-title {
 	text-align: center;
-	font-size: 30px;
+	font-size: 25px;
+	font-family: Century Gothic, sans-serif;
 }
 
 .blog-title-bold {
-	font-size: 40px;
+	font-size: 40px;	
+	font-family: Century Gothic, sans-serif;
 	font-weight: bold;
 }
 
@@ -31,18 +46,18 @@ div.blog-title {
 
 .myentries {
 	width: auto;
-	background-color: aliceblue;
+	background-color: #D0D7DD;
+	border-radius: 10px;
+	margin: 20px;
 }
 
 .title {
-	background-color: #DCE4EA;
 	width: auto;
 	font-size: 30px;
 }
 
 .entry {
 	background-color: #EAF3F7;
-	
 	width: auto;
 	font-size: 18px;
 }
