@@ -28,6 +28,7 @@ div.blog-title {
 	text-align: center;
 	font-size: 25px;
 	font-family: Century Gothic, sans-serif;
+	font-style: italic
 }
 
 .blog-title-bold {
@@ -37,7 +38,8 @@ div.blog-title {
 }
 
 .my-background {
-	font-size: 16px;
+	font-size: 20px;
+	font-family: Garamond, Baskerville, “Baskerville Old Face”, “Hoefler Text”, “Times New Roman”, serif;
 }
 
 #entries {
@@ -54,11 +56,35 @@ div.blog-title {
 .title {
 	width: auto;
 	font-size: 30px;
+	font-family: Didot, “Didot LT STD”, “Hoefler Text”, Garamond, “Times New Roman”, serif;
+	font-weight: bold;
 }
+
+
 
 .entry {
 	background-color: #EAF3F7;
 	width: auto;
 	font-size: 18px;
+	font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+	font-style: oblique;
 }
 
+.myContact {
+	background-color: #5A6372;
+	text-align: center;
+	font-size: 20px;
+	width: auto;
+}
+
+.contactText {
+	color: white;
+}
+
+.contactText:hover {
+	color: #6D83D6;
+}
+
+.btn {
+	font-size: 20px;
+}
