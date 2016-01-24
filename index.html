@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <!--css style sheets-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  
+  
+  <!--js files-->
+  <script src="lib/angular/angular.min.js"></script>
+  <!--controller for title and entry for blog-->
+  <script src="js/controller.js"></script>
+  <!--containing data for title and entry-->
+  <script src="js/data.js"></script>
+  <title>oosijgolb</title>
+</head>
+<body ng-app="myBlog">
+	<header class="container"><span class="header-beg">Xanga.</span>prototype.oosijGolb</header>
+	
+	<section id="blogtitle">
+		<div class="container blog-title">
+			my journey of dedication, perserverance, and most importantly hack<span class="blog-title-bold">reactor</span>ing
+		</div>
+	</section>
+	
+	
+	<section id="background">
+		<div class="container my-background">
+			Hi, my name is Jisoo. This is my personal blog of road to becoming a Hack Reactor student and my experiences I had to get there. My basic background of programming or coding was zero prior to studying to get into Hack Reactor. Upon beginning, I started studying basic html and css from codeacademy, javascript road in codeacademy, codeschool, freecodecamp, and various other free online materials and books. 
+		</div>	
+	</section>
+	
+	<section id="entries" >
+		<div class="main container" ng-controller="myEntries">
+			<div class="myentries" ng-repeat="blog in blogs">
+				<div class="container title">{{blog.title}}</div>
+				<div class="container entry">{{blog.entry}}</div>
+			</div>
+		</div>
+	</section>
+	
+	
+</body>
+</html>

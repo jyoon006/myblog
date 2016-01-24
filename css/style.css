@@ -1,0 +1,49 @@
+header {
+	text-align: center;
+	font-size: 1.928em;
+	color: red;
+}
+
+body {
+	background-color: #D2E0F2;
+}
+.header-beg {
+	font-size: 2.571em;
+}
+
+div.blog-title {
+	text-align: center;
+	font-size: 30px;
+}
+
+.blog-title-bold {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.my-background {
+	font-size: 16px;
+}
+
+#entries {
+	text-align: center;
+}
+
+.myentries {
+	width: auto;
+	background-color: aliceblue;
+}
+
+.title {
+	background-color: #DCE4EA;
+	width: auto;
+	font-size: 30px;
+}
+
+.entry {
+	background-color: #EAF3F7;
+	
+	width: auto;
+	font-size: 18px;
+}
+
