@@ -10,14 +10,16 @@ header {
 	font-family: Impact, Charcoal, sans-serif;
 	font-size: 1.928em;
 	color: #9882A5;
+	width: auto;
 }
 
 body {
 	background-color: #EDEFF9;
+	width: auto;
 }
 
 section {
-	margin: 15px;
+	margin: 1.07em;
 }
 .header-beg {
 	font-family: Impact, Charcoal, sans-serif;
@@ -26,19 +28,19 @@ section {
 
 div.blog-title {
 	text-align: center;
-	font-size: 25px;
+	font-size: 1.75em;
 	font-family: Century Gothic, sans-serif;
 	font-style: italic
 }
 
 .blog-title-bold {
-	font-size: 40px;	
+	font-size: 1.85em;	
 	font-family: Century Gothic, sans-serif;
 	font-weight: bold;
 }
 
 .my-background {
-	font-size: 20px;
+	font-size: 1.43em;
 	font-family: Garamond, Baskerville, “Baskerville Old Face”, “Hoefler Text”, “Times New Roman”, serif;
 }
 
@@ -49,13 +51,13 @@ div.blog-title {
 .myentries {
 	width: auto;
 	background-color: #D0D7DD;
-	border-radius: 10px;
-	margin: 20px;
+	border-radius: 0.714em;
+	margin: 1.43em;
 }
 
 .title {
 	width: auto;
-	font-size: 30px;
+	font-size: 2.14em;
 	font-family: Didot, “Didot LT STD”, “Hoefler Text”, Garamond, “Times New Roman”, serif;
 	font-weight: bold;
 }
@@ -65,7 +67,7 @@ div.blog-title {
 .entry {
 	background-color: #EAF3F7;
 	width: auto;
-	font-size: 18px;
+	font-size: 1.285em;
 	font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
 	font-style: oblique;
 }
@@ -73,7 +75,7 @@ div.blog-title {
 .myContact {
 	background-color: #5A6372;
 	text-align: center;
-	font-size: 20px;
+	font-size: 1.43em;
 	width: auto;
 }
 
@@ -86,5 +88,5 @@ div.blog-title {
 }
 
 .btn {
-	font-size: 20px;
+	font-size: 1.43em;
 }
