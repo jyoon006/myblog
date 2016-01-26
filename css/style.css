@@ -24,6 +24,7 @@ section {
 .header-beg {
 	font-family: Impact, Charcoal, sans-serif;
 	font-size: 2.571em;
+	width: auto;
 }
 
 div.blog-title {
@@ -31,17 +32,20 @@ div.blog-title {
 	font-size: 1.75em;
 	font-family: Century Gothic, sans-serif;
 	font-style: italic
+		width: auto;
 }
 
 .blog-title-bold {
 	font-size: 1.85em;	
 	font-family: Century Gothic, sans-serif;
 	font-weight: bold;
+	width: auto;
 }
 
 .my-background {
 	font-size: 1.43em;
 	font-family: Garamond, Baskerville, “Baskerville Old Face”, “Hoefler Text”, “Times New Roman”, serif;
+	width: auto;
 }
 
 #entries {
@@ -70,6 +74,7 @@ div.blog-title {
 	font-size: 1.285em;
 	font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
 	font-style: oblique;
+	width: auto;
 }
 
 .myContact {
