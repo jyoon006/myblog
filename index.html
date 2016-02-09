@@ -38,6 +38,9 @@
 			<div class="myentries" ng-repeat="blog in blogs">
 				<div class="container title">{{blog.title}}</div>
 				<div class="container entry">{{blog.entry}}</div>
+				<div class="container image">
+					<img class="image" src="{{blog.image}}" />
+				</div>
 			</div>
 		</div>
 	</section>
