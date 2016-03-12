@@ -36,6 +36,26 @@
 	<section id="entries" >
 		<div class="main container" ng-controller="myEntries">
 			<div class="myentries" ng-repeat="blog in blogs">
+        <div class="container title"> Basic Introduction to React </div>
+        <div class="container entry">
+          React is fairly new and was developed by facebook. One thing I find fairly interesting is that React is only the V in your typical MVC framework. React abstracts away the DOM from you and gives much simpler programming model and rumor has it that, it is much faster than angular. React can also render on the server side using Node.js and power native apps using React Native, which is the mobile app version. React implements one way data flow which reduces boilerplate and it's easier to understand than traditional data binding.<br>
+          I wanted to introduce basic Hello World and dive into a little more into React how it works.React uses components to build out templates. We can use React method called React.createClass() to create a simple view template<br>
+          <code>var helloWorld = React.createClass({});</code><br>
+          This is a very basic way to create a template giving whatever variable name you wish. The
+          <code>React.createClass()</code> takes an object as its argument and we can do many things within this object. <br>
+          <div class="text-center">
+            <code>
+              var helloWorld = React.createClass({ <br>
+                render: function() {}
+              });
+            </code>
+          </div><br>
+          Whatever that is in render function will output to DOM to render to view for users (hence the name of render function name). Just having this createClass() with render function will not render. We also have to invoke this render function in order to render it to DOM. <br>
+          <code> ReactDOM.render('name of class you made with React', 'where you want to render to')</code> <br>
+          In our case we can pass it the <code>var helloWorld = React.createClass({}) </code> as our first argument to <code>ReactDOM.render()</code> first argument and just to test it out we can use <code>document.body</code> for our second argument for <code>ReactDom.render()</code><br>
+          <code>ReactDOM.render(&lt;helloWorld/&gt;, document.body) </code> We just have to remember that when React is creating class, it's like creating a new DOM tag, so make sure to enclose the tag with your variable name and close it just like <code>&lt;helloWorld/&gt;</code>
+          
+        </div>
 				<div class="container title">{{blog.title}}</div>
 				<div class="container entry">{{blog.entry}}</div>
 				<div class="container image">
