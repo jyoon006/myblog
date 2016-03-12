@@ -35,7 +35,7 @@
 	
 	<section id="entries" >
 		<div class="main container" ng-controller="myEntries">
-			<div class="myentries" ng-repeat="blog in blogs">
+      <div class="myentries">
         <div class="container title"> Basic Introduction to React </div>
         <div class="container entry">
           React is fairly new and was developed by facebook. One thing I find fairly interesting is that React is only the V in your typical MVC framework. React abstracts away the DOM from you and gives much simpler programming model and rumor has it that, it is much faster than angular. React can also render on the server side using Node.js and power native apps using React Native, which is the mobile app version. React implements one way data flow which reduces boilerplate and it's easier to understand than traditional data binding.<br>
@@ -56,6 +56,8 @@
           <code>ReactDOM.render(&lt;helloWorld/&gt;, document.body) </code> We just have to remember that when React is creating class, it's like creating a new DOM tag, so make sure to enclose the tag with your variable name and close it just like <code>&lt;helloWorld/&gt;</code>
           
         </div>
+        </div>
+			<div class="myentries" ng-repeat="blog in blogs">
 				<div class="container title">{{blog.title}}</div>
 				<div class="container entry">{{blog.entry}}</div>
 				<div class="container image">

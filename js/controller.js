@@ -7,7 +7,7 @@ var myApp = angular.module('myBlog', [])
 myApp.controller('myEntries', function($scope, $http) {
 	$http.defaults.useXDomain = true;
 	$scope.blogs = [];
-	
+	$scope.extremeBlog = true;
 	$http.get('js/data.json').success(function(data) {
 		$scope.blogs = data;
 	});
