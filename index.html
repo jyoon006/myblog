@@ -40,21 +40,19 @@
         <div class="container entry">
           React is fairly new and was developed by facebook. One thing I find fairly interesting is that React is only the V in your typical MVC framework. React abstracts away the DOM from you and gives much simpler programming model and rumor has it that, it is much faster than angular. React can also render on the server side using Node.js and power native apps using React Native, which is the mobile app version. React implements one way data flow which reduces boilerplate and it's easier to understand than traditional data binding.<br>
           I wanted to introduce basic Hello World and dive into a little more into React how it works.React uses components to build out templates. We can use React method called React.createClass() to create a simple view template<br>
-          <code>var helloWorld = React.createClass({});</code><br>
+          <xmp>var helloWorld = React.createClass({});</xmp><br>
           This is a very basic way to create a template giving whatever variable name you wish. The
-          <code>React.createClass()</code> takes an object as its argument and we can do many things within this object. <br>
-          <div class="text-center">
-            <code>
-              var helloWorld = React.createClass({ <br>
-                render: function() {}
-              });
-            </code>
-          </div><br>
+          <xmp>React.createClass()</xmp> takes an object as its argument and we can do many things within this object.
+          <xmp> var helloWorld = React.createClass({ render: function() {} });</xmp>
+          <br>
           Whatever that is in render function will output to DOM to render to view for users (hence the name of render function name). Just having this createClass() with render function will not render. We also have to invoke this render function in order to render it to DOM. <br>
-          <code> ReactDOM.render('name of class you made with React', 'where you want to render to')</code> <br>
-          In our case we can pass it the <code>var helloWorld = React.createClass({}) </code> as our first argument to <code>ReactDOM.render()</code> first argument and just to test it out we can use <code>document.body</code> for our second argument for <code>ReactDom.render()</code><br>
-          <code>ReactDOM.render(&lt;helloWorld/&gt;, document.body) </code> We just have to remember that when React is creating class, it's like creating a new DOM tag, so make sure to enclose the tag with your variable name and close it just like <code>&lt;helloWorld/&gt;</code>
-          
+          <xmp> ReactDOM.render('name of class you made with React', 'where you want to render to')</xmp> <br>
+          In our case we can pass it the <xmp>var helloWorld = React.createClass({}) </xmp> as our first argument to <xmp>ReactDOM.render()</xmp> first argument and just to test it out we can use <xmp>document.body</xmp> for our second argument for <xmp>ReactDom.render()</xmp><br>
+          <xmp>ReactDOM.render(<helloWorld/>, document.body) </xmp> We just have to remember that when React is creating class, it's like creating a new DOM tag, so make sure to enclose the tag with your variable name and close it just like <xmp><helloWorld/></xmp> <br>
+          Now all we have to write is couple HTML tags within the render function to render Hello World to DOM with React. <br>
+          <xmp>render: function() { return () });</xmp> within the return statement, we can put any HTML tags we wish to render. In our case, we can simply just use <xmp><h1></h1></xmp> tag. Let's put Hello World inside the tag and within our return statement. <br>
+          <xmp>render: function() { return ( <h1>Hello World</h1>; )};</xmp>
+          So there you have it, a simple Hello World with react. React can be very powerful, and I'll definitely dive more deeply into React next time!
         </div>
         </div>
 			<div class="myentries" ng-repeat="blog in blogs">
