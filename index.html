@@ -33,8 +33,124 @@
 		</div>	
 	</section>
 	
-	<section id="entries" >
+	<section id="entries">
 		<div class="main container" ng-controller="myEntries">
+      <div class="myentries">
+        <div class="container title">Basic Introduction to DynamoDB</div>
+        <div class="container entry">
+          DynamoDB is produced by Amazon and it's a fast and flexible NoSQUL database service for application that need consistent, single-digit millisecond latency at any scale. It is managed fully with cloud database and supports both document and key value store models. The flexible data model and reliable performance makes it great fit for any platform - mobile, web, gaming, ad tech, and many other applications. </br></br>
+          Amazon DynamoDB was the database we choose in our thesis group. Not only did we want to produce the best application, but also learn new technology at the same time while building the best app. First starting with installation and just trying to set up the database to work locally was not easy. It took us quite a time to figure it out, but once we had it running, it was not that bad. DynamoDB is still fairly new and is it not widely used yet. Due to this reason, it is not the easiest to find solutions to your problem through google or stackoverflow. Your resource to your solution is very scarce and may need to understand through documentation to get through your problem. </br></br>
+          To get started, you can just go this <a href="http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.NodeJs.html">link</a> to get you started using dynamoDB with Node.js. You first need to download dynamoDB and for simple sake, you wouldn't need to sign up for AWS to test it locally. Once you have it downloaded and extracted the dynamoDB file into your directory, you can pop up your command line and type
+          <br><br>
+          <code> java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb </code><br><br>you would need to have java dependency in your terminal to run dynamo, which really sucks, but you will get to experience new database!
+          <br></r>
+          What's great about dynamoDB is that, it offers you an in-browser shell, which you can run dynamoDB commands to run and query through database. I found this really neat and helpful. To access your dynamoDB shell, simply go to your localhost:8000/shell. (you may need to check which port dynamoDB is running) The link gives you very good instructions how to create a table, query, update, delete, add data to database, but I'll try to explain the basics as easy as I can.
+          <br><br>
+          You will need to install aws-sdk as your dependency through npm install. After installing dependency, we can simply require it on a .js file.
+          <br><br>
+          <code> var aws = require('aws-sdk'); </code>
+          <br><br>
+          In the same .js file, we can do some configuration for dynamoDB.
+          <xmp>
+            aws.config.update({
+              accessKeyId: "fakeAccessKey",
+              secretAccessKey: "fakeSecretAccessKey",
+              region: "fakeRegion",
+              endpoint: new aws.Endpoint('http://localhost:8000')
+            });
+          </xmp>
+          the <code>endpoint: new aws.Endpoint('http://localhost:8000') </code> is where we specify which port we want to run it locally. For my example I used port 8000.
+          <br>  
+          After setting up dynamoDB configuration, there are two ways to access dynamoDB functions.
+          To follow how their website example has it, I'll set the variable names same as theirs to show the difference. 
+          <xmp>
+          var dynamodb = new aws.DynamoDB();
+          var docClient = new aws.DynamoDB.DocumentClient();
+          </xmp>
+          dynamodb will be used when creating table, putting data, deleting table, describing tables, and listing tables. <br>
+          docClient is used when querying data, scanning data, getting data, updating data, deleting data, and many more. <br>
+          If you open up the dynamoDB in-browser shell, and click the   &lt; /  &gt; button on top right corner, it will list you every type of functions dynamoDB has to offer and you can check out the different ways! 
+          <br><br>
+          To create a table, you first make params of what your table will take as data.
+          <xmp>
+          var Params = {
+            TableName: "Sample",
+            KeySchema: [
+              {AttributeName: "id", KeyType: "HASH"},
+            ],
+            AttributeDefinitions: [
+              {AttributeName: "id", AttributeType: "N"},
+            ],
+            ProvisionedThroughput: {
+              ReadCapacityUnits: 1,
+              WriteCapacityUnits: 1
+            }
+          };
+          </xmp>
+          One thing to see from this params object is that, you can only have one KeyType of "HASH" for each table. We'll be just giving an attribute data name of id and the <code> AttributeType: "N" </code> refers that it will be a number. (N === Number). <code>ProvisionedThroughput</code> is how much you want to reserver for reads and write. <code>ReadCapacityUnits</code> represents one consistent read per second and otal number of read capacity units required depends on the item size it reads. <code>WriteCapacityUnits</code> represents one write per second for items and if you need to write an item larger than 1KB, dynamoDB will need to consume additional write capacity units. From some of the videos I've saw, they have advised that keeping these at 10 each is safest, and when you're actually deploying and using your AWS account, you wont be charged ridiculously for the mistake of having it more than 10.
+          <br><br>
+          After creating our params value, we can simply create table now.
+          <xmp>
+          dynamodb.createTable(Params, function (err, data) {
+            if (err) {
+              console.error("Unable to create table. Error JSON:", JSON.stringify(err, null, 2));
+            } else {
+              console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
+            }
+          });
+          </xmp>
+          and now you have create a table name Sample!
+          <br><br>
+          To add data, you will need to have another params object.
+          <xmp>
+          var addingDataParams = {
+            TableName: "Sample",
+              Item: {
+                id: 0,
+                greet: "Hello World"
+              },
+          }
+
+          //and now we can use put method provided from dynamoDB to add this new data
+          //notice that we have provided TableName same as the Table we created at top
+
+          docClient.put(addingDataParams, function(err, data) {
+            if(err) {
+              console.error("Error adding new data to Sample Table: ", err);
+            }
+            else {
+              console.log("Data was successfully added to Sample Table: ", data);
+            }
+          });
+
+          //notice how we used docClient to add new item to existing table and not dynamodb
+          </xmp>
+          Finally we can go over how to get datas from the table.
+          <xmp>
+          //create params variable just as before
+          var scanParams = {
+            TableName: Sample
+          }
+          //if you want to get every data from the table, you only will 
+          //need to specify Tablename only
+
+          docClient.scan(scanParams, function(err, data) {
+            if(err) {
+              console.error("Error finding data from Sample Table: ", err);
+            }
+            else {
+              console.log("All existing data from Sample Table: ", data);
+            }
+          });
+          </xmp>
+          The data variable will be an object containing Items, Count, and ScannedCount key values.
+          <br>
+          <code>{"Items": ["id": 0, "greet": "Hello World"], "Count": 1, "ScannedCount": 1}</code>
+          We can now access all the data from Sample table by accessing <code>data.Items</code> array. Count will be the count of how many scanned items from the table. This will usually be useful when filtering the scan. ScannedCount will give you how many datas are in that table.
+          <br><br>
+          As you can see once you get the hang of it, dynamoDB isn't so bad! I always find it really interesting and pleasing learning new technologies out there, and there is never any harm learning new things!
+        </div>
+      </div>
       <div class="myentries">
         <div class="container title"> Basic Introduction to React </div>
         <div class="container entry">
@@ -54,7 +170,7 @@
           <xmp>render: function() { return ( <h1>Hello World</h1>; )};</xmp>
           So there you have it, a simple Hello World with react. React can be very powerful, and I'll definitely dive more deeply into React next time!
         </div>
-        </div>
+      </div>
 			<div class="myentries" ng-repeat="blog in blogs">
 				<div class="container title">{{blog.title}}</div>
 				<div class="container entry">{{blog.entry}}</div>
@@ -62,7 +178,7 @@
 					<img class="image" ng-hide="!blog.image" src="{{blog.image}}" />
 				</div>
 			</div>
-		</div>
+    </div>
 	</section>
 	
 	<footer class="container myContact">
